@@ -1,0 +1,25 @@
+{
+  "name": "@sems-pay/sdk",
+  "version": "0.1.0",
+  "description": "B2B TypeScript SDK for the Sems-Pay confidential freelance escrow protocol on Solana.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.32.1",
+    "@solana/web3.js": "^1.98.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "@types/node": "^22.15.30"
+  },
+  "files": ["dist", "src"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/sems-pay"
+  },
+  "license": "MIT"
+}

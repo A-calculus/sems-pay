@@ -1,0 +1,45 @@
+[package]
+name = "sems-pay"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "sems_pay"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build"]
+anchor-debug = []
+custom-heap = []
+custom-panic = []
+privacy_logs = []
+privacy_events = []
+
+[dependencies]
+anchor-lang = { version = "0.32.1", features = ["init-if-needed"] }
+sha2 = "0.10.8"
+ephemeral-rollups-sdk = { version = "0.8.8", features = ["anchor", "access-control"] }
+magicblock-magic-program-api = "0.8.3"
+bincode = "1.3.3"
+
+# Inco Lightning SDK for confidential computation on Solana (Devnet Beta)
+inco-lightning = { version = "0.1.4", features = ["cpi"] }
+
+# Inco Confidential SPL Token SDK
+inco-token = { git = "https://github.com/Inco-fhevm/lightning-rod-solana.git", features = ["cpi"] }
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
+
+[profile.release.build-override]
+opt-level = 3
+incremental = false
+codegen-units = 1
